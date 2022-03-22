@@ -84,7 +84,7 @@ DATABASES = {
         "NAME": "django",
         "USER": "django",
         "PASSWORD": "django",
-        "HOST": "database",
+        "HOST": "db",
         "PORT": "5432",
         "CONN_MAX_AGE": None
     },
@@ -136,7 +136,9 @@ REST_FRAMEWORK = {
 }
 
 CORS_ORIGIN_WHITELIST = [
-    "http://localhost:3000",
+    "http://localhost:8000",
+    "http://localhost",
+    "http://localhost:80"
 ]
 
 FIXTURES_DIRS = os.path.join(BASE_DIR, 'catalog/fixtures')
