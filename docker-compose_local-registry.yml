@@ -2,15 +2,13 @@ version: "3.9"
    
 services:
   web:
-    build:
-      context: ./frontend
-      dockerfile: Dockerfile
+    image: localhost:5000/docker_homework_web:0.1 
     ports:
       - "80:80"
     networks:
       - frontnet
   db:
-    image: postgres:12.10
+    image: localhost:5000/postgres:12.10
     environment:
       - POSTGRES_NAME=django
       - POSTGRES_USER=django
@@ -18,9 +16,7 @@ services:
     networks:
       - backnet
   back:
-    build:
-      context: ./lib_catalog
-      dockerfile: Dockerfile
+    image: localhost:5000/docker_homework_back:0.1 
     command: ["/bin/bash", "-c", "python manage.py migrate && exec python manage.py runserver 0.0.0.0:8000"]
     ports:
       - "8000:8000"
